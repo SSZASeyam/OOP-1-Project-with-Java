@@ -1,0 +1,280 @@
+//Entity
+//History.java
+package entity;
+
+public class History 
+{
+	private String trainName;
+	private String fromStation;
+	private String toStation;	
+	private String time;
+	private String trainCoach;
+	public History()
+	{
+		
+	}
+	public History(String trainName,String fromStation,String toStation,String time)
+	{
+		this.trainName=trainName;
+		this.fromStation=fromStation;
+		this.toStation=toStation;
+		this.time=time;
+	}
+	public History(String fromStation)
+	{
+		this.fromStation=fromStation;
+	}
+	public History(String trainName,String trainCoach)
+	{
+		this.trainName=trainName;
+		this.trainCoach=trainCoach;
+	}
+	public void setTrainName(String trainName)
+	{
+		this.trainName=trainName;
+	}
+	public void setFromStation(String fromStation)
+	{
+		this.fromStation=fromStation;
+	}
+	public void setToStation(String toStation)
+	{
+		this.toStation=toStation;
+	}
+	public void setTime(String time)
+	{
+		this.time=time;
+	}
+	public void setTrainCoach(String trainCoach)
+	{
+		this.trainCoach=trainCoach;
+	}
+	public String getTrainName()
+	{
+		return trainName;
+	}
+	public String getFromStation()
+	{
+		return fromStation;
+	}
+	public String getToStation()
+	{
+		return toStation;
+	}
+	public String getTime()
+	{
+		return time;
+	}
+	public String getTrainCoach()
+	{
+		return trainCoach;
+	}
+}
+
+
+//iStationHistory.java
+package entity;
+
+public interface iStationHistory
+{
+	public  StationHistory [] getAllStationHistory();
+	
+}
+
+//iTicketHistory.java
+package entity;
+
+public interface iTicketHistory
+{
+	public  TicketHistory [] getAllTicketHistory();
+	
+}
+
+
+//iTrainCoachHistory.java
+package entity;
+
+public interface iTrainCoachHistory
+{
+	public  TrainCoachHistory [] getAllTrainCoachHistory();
+	
+}
+
+
+//iTrainHistory.java
+package entity;
+
+public interface iTrainHistory
+{
+	public  TrainHistory [] getAllTrainHistory();
+	
+}
+
+//StationHistory.java
+package entity;
+
+public class StationHistory extends History
+{
+	public StationHistory(String fromStation)
+	{
+		super(fromStation);
+	}
+	public String toString()
+	{
+		return super.getFromStation()+"\n";
+	}
+}
+
+//TicketHistory.java
+package entity;
+
+public class TicketHistory extends History
+{
+	public TicketHistory()
+	{
+		
+	}
+	public TicketHistory(String trainName,String fromStation,String toStation,String time)
+	{
+		super(trainName,fromStation,toStation,time);
+	}
+	public String toString()
+	{
+		return super.getTrainName()+"/"+super.getFromStation()+"/"+super.getToStation()+"/"+super.getTime()+"\n";
+	}
+	
+}
+
+//TrainCoachHistory.java
+package entity;
+
+public class TrainCoachHistory extends History
+{
+	public TrainCoachHistory(String trainName,String trainCoach)
+	{
+		super(trainName,trainCoach);
+	}
+	public String toString()
+	{
+		return super.getTrainName()+"/"+super.getTrainCoach()+"\n";
+	}
+}
+
+
+//TrainHistory.javapackage entity;
+
+public class TrainHistory extends History
+{
+	private String Class;
+	private double ticketPrice;
+    
+    public TrainHistory()
+    {
+
+		
+	}
+	public TrainHistory(String trainName,String fromStation,String toStation,String time,String Class,double ticketPrice)
+    {
+      super(trainName,fromStation,toStation,time);
+	  this.Class=Class;
+	  this.ticketPrice=ticketPrice;
+		
+	}
+	public void setclass(String Class)
+	{
+		this.Class=Class;
+	}
+	public void setTicketPrice(double ticketPrice)
+	{
+		this.ticketPrice=ticketPrice;
+	}
+	public String getclass()
+	{
+		return Class;
+	}
+	public double getTicketPrice()
+	{
+		return ticketPrice;
+	}
+	public String toString()
+	{
+		return super.getFromStation()+"/"+super.getToStation()+"/"+super.getTrainName()+"/"+getclass()+"/"+super.getTime()+"/"+getTicketPrice()+"\n";
+	}
+}
+
+
+//TravelerHistory.java
+package entity;
+
+public class TravelerHistory extends History
+{
+	private String name;
+	private String nid;
+	private String email;
+	private String phoneNumber;
+	private String password;
+	private double balance;
+	
+	public TravelerHistory(String name,String nid,String email,String phoneNumber,String password,double balance)
+	{
+		super();
+		this.name=name;
+		this.nid=nid;
+		this.email=email;
+		this.phoneNumber=phoneNumber;
+		this.password=password;
+		this.balance=balance;
+	}
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public void setNID(String nid)
+	{
+		this.nid=nid;
+	}
+	public void setEmail(String email)
+	{
+		this.email=email;
+	}
+	public void setPhoneNumber(String phoneNumber)
+	{
+		this.phoneNumber=phoneNumber;
+	}
+	public void setPassword(String password)
+	{
+		this.password=password;
+	}
+	public void setBalance(double balance)
+	{
+		this.balance=balance;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public String getNID()
+	{
+		return nid;
+	}
+	public String getEmail()
+	{
+		return email;
+	}
+	public String getPhoneNumber()
+	{
+		return phoneNumber;
+	}
+	public String getPassword()
+	{
+		return password;
+	}
+	public double getBalance()
+	{
+		return balance;
+	}
+	public String toString()
+	{
+		return getName()+"/"+getNID()+"/"+getEmail()+"/"+getPhoneNumber()+"/"+getPassword()+"/"+getBalance()+"\n";
+	}
+}
